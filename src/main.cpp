@@ -12,6 +12,7 @@
 
 #define CLIENT_ADDRESS 0x21
 #define SERVER_ADDRESS 5
+#define Test 1000
 
 // Class to manage message delivery and receipt, using the driver declared above
 // RHReliableDatagram manager(driver, CLIENT_ADDRESS);
