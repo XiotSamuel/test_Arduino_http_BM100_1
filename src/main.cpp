@@ -218,7 +218,6 @@ void callback(char *topic, byte *payload, unsigned int length)
 
 void loop()
 {
-
   // driver.setHeaderFrom(0x50);
   // driver.setHeaderTo(0x00);
   // driver.setHeaderId(0x00);
