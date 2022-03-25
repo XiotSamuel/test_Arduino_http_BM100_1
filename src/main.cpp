@@ -9,7 +9,6 @@
 #include <SPI.h>
 #include <RHSoftwareSPI.h>
 
-
 #define CLIENT_ADDRESS 0x21
 #define SERVER_ADDRESS 5
 #define Test 1000
@@ -34,7 +33,7 @@ const int mqtt_port = 1883;
 
 // all command for the BM100
 
-//{D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,
+// {D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,
 // D12,D13,D14,D15,D16,D17,D18,D19,D20,D21,D22}
 // uint8_t msg1[] = {0x11, 0x0E, 0x10, 0xE0, 0x50, 0x00, 0x00, 0x00, 0x50, 0x00, 0x50,
 // 0x00, 0x50, 0x00, 0x50, 0x00, 0x50, 0x00, 0x50, 0x00, 0x50, 0x40, 0x3B };
@@ -52,11 +51,6 @@ uint8_t cmd5[] = {0x11, 0x04, 0x05, 0xe9};
 
 uint8_t cmd0[] = {0x11, 0x04, 0x00, 0xe9};
 // uint8_t data[] = {0x11, 0x08, 0x50, 0x50, 0x00, 0x00, 0xAD, 0x9A};
-
-// Dont put this on the stack:
-uint8_t buf[RH_RF22_MAX_MESSAGE_LEN];
-
-uint8_t rf_data[] = {0x11, 0x08, 0x50, 0x50, 0x00, 0x00, 0xAD, 0xFF};
 
 WiFiClient espClient;
 PubSubClient mqttclient(espClient);
@@ -137,7 +131,6 @@ void setup()
   // }
 
   // Serial.println("setup done");
-
 }
 
 void bm100mqttSub(void *pvParam)
@@ -172,10 +165,10 @@ void callback(char *topic, byte *payload, unsigned int length)
   {
     Serial.print("cmd: ");
     Serial.println(cmd);
-    driver.setHeaderFrom(0x50);
-    driver.setHeaderTo(0x00);
-    driver.setHeaderId(0x00);
-    driver.setHeaderFlags(0xAD);
+    // driver.setHeaderFrom(0x66);
+    // driver.setHeaderTo(0x66);
+    // driver.setHeaderId(0x66);
+    // driver.setHeaderFlags(0x66);
 
     if (cmd == 1)
     {
